@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Album View</title>
+</head>
+<body>
+    <div class="container nav align-center justify-center space-around">
+        <img src="http://placegoldblum.com/75/75" alt="small logo image">
+        <h1>family foto</h1>
+        <input type="text" name="searchbar" placeholder="Search for images or users here...">
+        <button><a href="/upload">+</a></button>
+        <button><a href="/logout">Logout</a></button>
+    </div>
+    <div class="container justify-center"><h2>{{album.name}} album</h2></div>
+    <div class="container justify-center wrap">
+        {% for one_photo in all_photos.photos %}
+        <div class="box">
+            <img class="userPhoto" src="../static/img/{{one_photo.album_id}}_{{one_photo.name}}.jpg">
+            <h3>{{one_photo.name}}</h3>
+            <p>Location: {{one_photo.location}}</p>
+            <p>Description: {{one_photo.description}}</p>
+        </div>
+        {% endfor %}
+        
+    </div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Dash</title>
+</head>
+<body>
+    <div class="container nav align-center justify-center space-around">
+        <img src="http://placegoldblum.com/75/75" alt="small logo image">
+        <h1>family foto</h1>
+        <input type="text" name="searchbar" placeholder="Search for images or users here...">
+        <button><a href="/upload">+</a></button>
+        <button><a href="/logout">Logout</a></button>
+    </div>
+
+
+    <div class="container justify-center wrap">
+        <div class="box">
+            <img src="http://placegoldblum.com/100/100" alt="medium album preview image">
+            <h2>Create A New Album!</h2>
+            <p>Add a custom description!</p>
+            <button><a href="/new_album">GO CREATE!</a></button>
+        </div>
+        
+        {% for one_album in all_albums.albums %}
+        <div class="box">
+            <img src="http://placegoldblum.com/100/100" alt="medium album preview image">
+            <h2>{{one_album.name}}</h2>
+            <p>{{one_album.description}}</p>
+            <button><a href="/album/{{one_album.id}}">View Me!</a></button>
+        </div>
+        {% endfor %}
+        
+        <!-- <div class="box">
+            <img src="http://placegoldblum.com/100/100" alt="medium album preview image">
+            <h2>Album Name</h2>
+            <p>Album Description ....</p>
+            <button><a href="/album">View Me!</a></button>
+        </div>
+    </div>
+    <div class="container justify-center">
+        <div class="box">
+            <img src="http://placegoldblum.com/100/100" alt="medium album preview image">
+            <h2>Album Name</h2>
+            <p>Album Description ....</p>
+            <button><a href="/album">View Me!</a></button>
+        </div>
+        <div class="box">
+            <img src="http://placegoldblum.com/100/100" alt="medium album preview image">
+            <h2>Album Name</h2>
+            <p>Album Description ....</p>
+            <button><a href="/album">View Me!</a></button>
+        </div> -->
+    </div>
+
+    
+</body>
+</html>
